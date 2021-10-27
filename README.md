@@ -49,8 +49,6 @@ head out_scaffold.fa
 echo scaffold1_len3833811_cov232 > best_scaffold.txt
 seqtk subseq out_scaffold.fa best_scaffold.txt > best_scaffold.fasta
 ```
-Всего получено 70 скаффолдов, длина наибольшего 3'833'811
-
 9. Удаление гэпов из выделенного скаффолда
 ```
 platanus gap_close -c out_scaffold.fa -IP1 paired_R1.fastq.trimmed paired_R2.fastq.trimmed -OP2 mate_R1.fastq.int_trimmed mate_R2.fastq.int_trimmed 2> best_scaffold_gap_close.log
