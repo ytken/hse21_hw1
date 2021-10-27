@@ -33,7 +33,7 @@ platanus_internal_trim mate_R1.fastq mate_R2.fastq
 ```
 rm -f paired_R1.fastq paired_R2.fastq mate_R1.fastq mate_R2.fastq
 mkdir trimmed_fastqc
-ls *.trimmed | xargs -tI{} fastqc -o trimmed_fastqc {}
+ls *trimmed | xargs -tI{} fastqc -o trimmed_fastqc {}
 mkdir trimmed_multiqc
 multiqc -o trimmed_multiqc trimmed_fastqc
 ```
