@@ -24,12 +24,12 @@ mkdir fastqc
 ls | xargs -P 4 -tI{} fastqc -o fastqc{}
 multiqc -o multiqc fastqc
 ```
-5. Обрезание чтений с помощью platanus
+5. Подрезание чтений с помощью platanus
 ```
 platanus_trim paired_R1.fastq paired_R2.fastq 
 platanus_internal_trim mate_R1.fastq mate_R2.fastq
 ```
-6. Анализ fastqc обрезанных файлов и объединение с помощью multiqc
+6. Анализ fastqc подрезанных файлов и объединение с помощью multiqc
 ```
 rm -f paired_R1.fastq paired_R2.fastq mate_R1.fastq mate_R2.fastq
 mkdir trimmed_fastqc
@@ -49,9 +49,15 @@ head out_scaffold.fa
 echo scaffold1_len3833811_cov232 > best_scaffold.txt
 seqtk subseq out_scaffold.fa best_scaffold.txt > best_scaffold.fasta
 ```
-9. Удаление гэпов из выделенного скаффолда
+9. Удаление гэпов из выделенных скаффолдов
 ```
 platanus gap_close -c out_scaffold.fa -IP1 paired_R1.fastq.trimmed paired_R2.fastq.trimmed -OP2 mate_R1.fastq.int_trimmed mate_R2.fastq.int_trimmed 2> best_scaffold_gap_close.log
+```
+10. Выделение самого длинного скаффолда без гэпов
+```
+head out_gapClosed.fa
+echo scaffold1_cov232 > gap_close.txt
+seqtk subseq out_gapClosed.fa gap_close.txt > best_scaffold_without_gaps.fasta
 ```
 ## Отчеты Multiqc
 ### Исходные чтения
@@ -65,6 +71,6 @@ platanus gap_close -c out_scaffold.fa -IP1 paired_R1.fastq.trimmed paired_R2.fas
 ![](img/adapter_trimmed.png)
 ![](img/status_trimmed.png)
 ## Ссылка на Google Colab
-пока недоделала :)
+[Тык](https://colab.research.google.com/drive/1NEM6dcvtp6t98yv5XLsSl8Nlpph3DAyI?usp=sharing)
 
 
