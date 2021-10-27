@@ -7,7 +7,7 @@ cd init_data
  ls /usr/share/data-minor-bioinf/assembly/* | xargs -tI{} ln -s {}
 ```
 2. Анализ загруженности сервера
-
+![Результат команды htop](img/state.jpg)
 3. Выбор необходимого количества чтений
 ```
 seqtk sample -s919 oil_R1.fastq 5000000 > paired_R1.fastq
@@ -16,7 +16,7 @@ seqtk sample -s919 oilMP_S4_L001_R1_001.fastq 1500000 > mate_R1.fastq
 seqtk sample -s919 oilMP_S4_L001_R2_001.fastq 1500000 > mate_R2.fastq
 ```
 Результат
-
+![Результат подрезания](img/result.jpg)
 4. Удаление ненужных ссылок, анализ fastqc и объединение с помощью multiqc
 ```
 rm oil*
@@ -55,5 +55,18 @@ seqtk subseq out_scaffold.fa best_scaffold.txt > best_scaffold.fasta
 ```
 platanus gap_close -c out_scaffold.fa -IP1 paired_R1.fastq.trimmed paired_R2.fastq.trimmed -OP2 mate_R1.fastq.int_trimmed mate_R2.fastq.int_trimmed 2> best_scaffold_gap_close.log
 ```
+## Отчеты Multiqc
+Исходные чтения
+![](img/general.jpg)
+![](img/counts.jpg)
+![](img/adapter.jpg)
+![](img/status.jpg)
+Подрезанные чтения
+![](img/general_trimmed.jpg)
+![](img/counts_trimmed.jpg)
+![](img/adapter_trimmed.jpg)
+![](img/status_trimmed.jpg)
 ## Ссылка на Google Colab
 пока недоделала :)
+
+
