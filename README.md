@@ -57,15 +57,15 @@ platanus gap_close -c out_scaffold.fa -IP1 paired_R1.fastq.trimmed paired_R2.fas
 ```
 ## Отчеты Multiqc
 Исходные чтения
-![](img/general.jpg)
-![](img/counts.jpg)
-![](img/adapter.jpg)
-![](img/status.jpg)
+![](img/general.png)
+![](img/counts.png)
+![](img/adapter.png)
+![](img/status.png)
 Подрезанные чтения
-![](img/general_trimmed.jpg)
-![](img/counts_trimmed.jpg)
-![](img/adapter_trimmed.jpg)
-![](img/status_trimmed.jpg)
+![](img/general_trimmed.png)
+![](img/counts_trimmed.png)
+![](img/adapter_trimmed.png)
+![](img/status_trimmed.png)
 ## Ссылка на Google Colab
 пока недоделала :)
 
